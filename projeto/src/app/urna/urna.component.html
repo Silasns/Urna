@@ -1,0 +1,32 @@
+<div class="col d-flex justify-content-center align-items-center mt-5 p-2">
+  <div id="principal" class="col-lg-4 col-md-5 col-sm-10 rounded bg-white d-flex justify-content-center align-items-center p-3 ">
+    <form action="" class="form-group" (ngSubmit)="votar()">
+      <div class="row m-2">
+
+        <div class="my-2">
+          <label>Eleição para: {{titulo}}</label>
+        </div>
+      </div>
+      <div class="row m-2">
+        <label>Meu voto:</label>
+        <select [(ngModel)]="selectedOption" class="form-select rounded-pill" name="votos" id="idcodCandidatos"[(ngModel)]="voto">
+          <option  [value]="opcao.value" *ngFor="let opcao of opcoes">{{opcao.nome}}</option>
+        </select>
+        <div *ngIf="selectedOption>0;else semImagem">
+          <img class="img-fluid mt-4" id="imgCandidato" src="{{opcoes[selectedOption-1].url}}" alt="">
+        </div>
+
+      </div>
+      <span class="text-center" style="color:green">{{confirmacao}}</span>
+      <div class="row mt-3 px-4 text-center">
+        <div class="col"></div>
+        <div class="col-6"><input id="buttonSubmit" class="btn btn-secondary rounded-pill mt-3 p-2 w-100 " type="submit" (click)="telaRedirect()" value="Votar"></div>
+        <div class="col"></div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<ng-template #semImagem>
+  <img class="img-fluid mt-4" src="https://www.tre-am.jus.br/imagens/fotos/qual-e-a-diferenca-entre-o-voto-em-branco-e-o-voto-nulo/@@images/2db37e77-c953-4c78-a0a1-c101d2b7e6ed.jpeg" alt="">
+</ng-template>

@@ -1,0 +1,40 @@
+<div class="justify-content-center aling-items-center p-3 mt-3 d-flex col-sm-12 mt-5">
+  <div class="col-lg-4 col-md-5 col-sm-10 bg-white d-flex justify-content-center align-items-center p-3 rounded-3">
+    <form class="form-group" action="" (ngSubmit)="cadastrar()">
+      <h3 class="text-center mb-4">Cadastro</h3>
+      <div class="row mt-2">
+        <label class="form-label" for="idUsuario">Usuário</label>
+        <div class="col input-group">
+          <input class="form-control rounded-start bg-light shadow-sm " id="idUsuario" name="nmUsuario" type="text"
+            [(ngModel)]="usuario" require>
+        </div>
+      </div>
+      <p class="{{classeAlerta}}">{{alertaUsuario}}</p>
+      <div class="row mt-2">
+        <label class="form-label" for="idSenha">Senha</label>
+        <div class="col input-group">
+          <input class="form-control rounded-start bg-light shadow-sm " id="idSenha" name="nmSenha"
+            type="{{ tipoInput }}" [(ngModel)]="senha" require>
+          <span class="input-group-text rounded-end" id="olho" (click)="olhoSenha($event)"><i
+              class="{{ olho }}"></i></span>
+        </div>
+      </div>
+      <p class="{{classeAlerta}}">{{alertaSenha}}</p>
+      <div class="row mt-2">
+        <label class="form-label" for="idSenha">Confirmar Senha</label>
+        <div class="col input-group">
+          <input class="form-control rounded-start bg-light shadow-sm " id="idConfirmaSenha" name="nmConfirmaSenha"
+          type="{{ tipoInputConfirmaSenha }}" [(ngModel)]="confirmaSenha" require>
+          <span class="input-group-text rounded-end" id="olhoConfirmaSenha" (click)="olhoConfirmarSenha($event)"><i
+            class="{{ olhoConfirmaSenha }}"></i></span>
+          </div>
+        </div>
+        <p class="{{classeAlerta}}">{{alertaConfirmaSenha}}</p>
+      <div class="row mt-3 ">
+        <div class="col d-flex justify-content-center align-items-center">
+          <button class="btn btn-secondary shadow-sm border-secondary rounded-pill">Cadastrar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

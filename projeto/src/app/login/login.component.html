@@ -1,0 +1,44 @@
+<div class="justify-content-center aling-items-center mt-3 d-flex col-sm-12 mt-5">
+
+  <div class="col-lg-4 col-md-5 col-sm-10 bg-white d-flex justify-content-center align-items-center p-3 rounded-3">
+    <form class="form-group" action="" (ngSubmit)="logar()">
+
+      <div class="row">
+        <h3 class="text-center mb-4">Login</h3>
+        <div class="col">
+          <label class="form-label" for="idUsuario">Usuário</label>
+          <input class="form-control rounded bg-light shadow-sm" id="idUsuario" name="nmUsuario" type="text"
+            [(ngModel)]="usuario" (blur)="confereUsuario(usuario)" require>
+          <span id="idSpanUsuario" class="fw-light fs-6 text-danger">{{ alertaUsuario }}</span>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <label class="form-label" for="idSenha">Senha</label>
+        <div class="col input-group">
+          <input class="form-control rounded-start bg-light shadow-sm " id="idSenha" name="nmSenha" type="{{ tipoInput }}"
+            [(ngModel)]="senha" require>
+            <span class="input-group-text rounded-end" id="olho" (click)="olhoSenha($event)"><i class="{{ olho }}" ></i></span>
+        </div>
+      </div>
+
+      <span id="idSpanSenha" class="fw-light fs-6 text-danger">{{ alertaSenha }}</span>
+
+      <div class="row mt-3">
+        <div class="col d-flex justify-content-center align-items-center">
+          <button id="idBtnEntrar" name="nmBtnEntrar" [disabled]="desabilita" class="btn btn-secondary shadow-sm border-secondary rounded-pill"
+            type="submit">Entrar</button>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col d-flex justify-content-center align-items-center">
+          <p>Não está cadastrado? Cadastre-se <a class="link-primary" routerLink="/cadastro">aqui</a></p>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+
+</div>

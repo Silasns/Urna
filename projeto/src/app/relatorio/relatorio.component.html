@@ -1,0 +1,26 @@
+<div class="row m-0 p-2">
+  <div class="col"></div>
+  <div class="col-lg-4 col-md-6 col-sm-10 bg-white mt-4 rounded p-4" id="graficoDiv">
+    <div class="row">
+      <div class="col"></div>
+      <div class="col-8"*ngIf="votos.length>1;else listaVazia">
+        <p class="text-center">VOTOS TOTAIS : {{votos.length}}</p>
+        <div *ngFor="let contag of contagem">
+          {{contag?.opcao | uppercase}} - {{contag?.votos}}
+          <div class="progress"style="height: 3.5vh;">
+            <div class="progress-bar bg-success" role="progressbar" style="width: {{contag?.media}}%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"> {{contag?.media}}%</div>
+          </div>
+        </div>
+      </div>
+      <div class="col"></div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <button routerLink="" class="btn-secondary  rounded-pill w-25 mt-4 p-1">Home</button>
+    </div>
+  </div>
+  <div class="col"></div>
+</div>
+
+<ng-template #listaVazia>
+  <p>Não há votos registrados</p>
+</ng-template>
